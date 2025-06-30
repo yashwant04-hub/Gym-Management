@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Records</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      margin: 0;
+      background-color: #111317;
+    }
+
+    h1 {
+      text-align: center;
+      color: #f9ac54;
+      margin-bottom: 20px;
+    }
+
+    .search-box {
+      max-width: 500px;
+      margin: 0 auto 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    #searchInput {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    @media (min-width: 992px) {
+      .results {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      background-color:  white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #f9ac54;
+      font-size: 1.4rem;
+    }
+
+    .card p {
+      margin: 8px 0;
+      color: #555;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔍 Search Member Records</h1>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search by name or phone...">
+  </div>
+
+  <div class="results" id="resultsContainer">
+    <!-- Filtered cards will show here -->
+  </div>
+
+  <script>
+    const members = [
+      {
+        name: "Rahul Mehta",
+        phone: "9876543210",
+        email: "rahul@example.com",
+        address: "Mumbai, India",
+        plan: "Monthly Gym"
+      },
+      {
+        name: "Priya Sharma",
+        phone: "9123456789",
+        email: "priya@example.com",
+        address: "Delhi, India",
+        plan: "Zumba + Gym"
+      },
+      {
+        name: "Arjun Reddy",
+        phone: "9988776655",
+        email: "arjun@example.com",
+        address: "Hyderabad, India",
+        plan: "Personal Trainer"
+      },
+      {
+        name: "Neha Singh",
+        phone: "9090909090",
+        email: "neha@example.com",
+        address: "Bangalore, India",
+        plan: "Yoga + Gym"
+      },
+      {
+        name: "Karan Johar",
+        phone: "9911223344",
+        email: "karan@example.com",
+        address: "Chennai, India",
+        plan: "Quarterly Package"
+      },
+      {
+        name: "Sneha Kapoor",
+        phone: "9845098450",
+        email: "sneha@example.com",
+        address: "Pune, India",
+        plan: "Strength Training"
+      }
+    ];
+
+    const resultsContainer = document.getElementById("resultsContainer");
+    const searchInput = document.getElementById("searchInput");
+
+    function displayMembers(data) {
+      resultsContainer.innerHTML = "";
+      if (data.length === 0) {
+        resultsContainer.innerHTML = "<p>No records found.</p>";
+        return;
+      }
+
+      data.forEach(member => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <h3>${member.name}</h3>
+          <p><strong>Phone:</strong> ${member.phone}</p>
+          <p><strong>Email:</strong> ${member.email}</p>
+          <p><strong>Address:</strong> ${member.address}</p>
+          <p><strong>Plan:</strong> ${member.plan}</p>
+        `;
+        resultsContainer.appendChild(card);
+      });
+    }
+
+    displayMembers(members);
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase();
+      const filtered = members.filter(m =>
+        m.name.toLowerCase().includes(query) ||
+        m.phone.includes(query)
+      );
+      displayMembers(filtered);
+    });
+  </script>
+
+</body>
+</html>
+

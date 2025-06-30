@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Create Bill</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111317;
+      margin: 0;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #f9ac54;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #f9ac54;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #d79447;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Create Bill</h1>
+
+  <form id="billForm">
+    <label for="name">Member Name</label>
+    <input type="text" id="name" required />
+
+    <label for="email">Email</label>
+    <input type="email" id="email" required />
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" required />
+
+    <label for="address">Address</label>
+    <textarea id="address" rows="2" required></textarea>
+
+    <label for="plan">Plan / Package</label>
+    <select id="plan" required>
+      <option value="">-- Select Plan --</option>
+      <option value="Basic">Basic</option>
+      <option value="Premium">Premium</option>
+      <option value="Annual">Annual</option>
+    </select>
+
+    <label for="amountPaid">Amount Paid (₹)</label>
+    <input type="number" id="amountPaid" required />
+
+    <label for="amountDue">Amount Due (₹)</label>
+    <input type="number" id="amountDue" required />
+
+    <label for="dueDate">Due Date</label>
+    <input type="date" id="dueDate" required />
+
+    <label for="notes">Additional Notes</label>
+    <textarea id="notes" rows="3"></textarea>
+
+    <button type="submit">Generate Bill</button>
+  </form>
+
+  <!-- 🔥 Your JavaScript -->
+  <script type="module">
+    import { db } from "./firebase-config.js";
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+    const form = document.getElementById("billForm");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const billData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        address: document.getElementById("address").value,
+        plan: document.getElementById("plan").value,
+        amountPaid: document.getElementById("amountPaid").value,
+        amountDue: document.getElementById("amountDue").value,
+        dueDate: document.getElementById("dueDate").value,
+        notes: document.getElementById("notes").value
+      };
+
+      try {
+        await addDoc(collection(db, "bills"), billData);
+        alert("✅ Bill created successfully!");
+        form.reset();
+      } catch (err) {
+        console.error("❌ Error adding bill:", err);
+        alert("Failed to create bill.");
+      }
+    });
+  </script>
+
+</body>
+</html>
+

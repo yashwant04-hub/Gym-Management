@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Supplement Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111317;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #f9ac54;
+    }
+
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    @media (max-width: 992px) {
+      .store-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .store-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-name {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #28a745;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .stock {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      padding: 10px 15px;
+      background: #f9ac54;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      align-self: start;
+    }
+
+    .btn:hover {
+      background: #d79447;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🏪 Supplement Store</h1>
+
+  <div class="store-grid" id="storeGrid"></div>
+
+  <script>
+    const products = [
+      {
+        name: "Whey Protein",
+        price: 2200,
+        stock: "In Stock – 15 units"
+      },
+      {
+        name: "Creatine Monohydrate",
+        price: 1500,
+        stock: "In Stock – 20 units"
+      },
+      {
+        name: "BCAA Energy Drink",
+        price: 850,
+        stock: "Low Stock – 5 units"
+      },
+      {
+        name: "Mass Gainer",
+        price: 1800,
+        stock: "In Stock – 10 units"
+      },
+      {
+        name: "Pre-Workout Booster",
+        price: 1200,
+        stock: "Limited Stock – 3 units"
+      },
+      {
+        name: "Multivitamin Capsules",
+        price: 600,
+        stock: "In Stock – 25 units"
+      },
+      {
+        name: "Omega-3 Fish Oil",
+        price: 700,
+        stock: "In Stock – 18 units"
+      },
+      {
+        name: "ZMA Recovery Complex",
+        price: 950,
+        stock: "In Stock – 8 units"
+      },
+      {
+        name: "Glutamine Powder",
+        price: 1000,
+        stock: "In Stock – 12 units"
+      }
+    ];
+
+    const storeGrid = document.getElementById("storeGrid");
+
+    products.forEach((item) => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <div class="product-name">${item.name}</div>
+        <div class="price">₹${item.price}</div>
+        <div class="stock">${item.stock}</div>
+        <button class="btn" onclick="buyNow('${item.name}')">Buy Now</button>
+      `;
+      storeGrid.appendChild(card);
+    });
+
+    function buyNow(productName) {
+      alert(`🛒 You selected: ${productName}`);
+      // Future: Store in Firebase or member profile
+    }
+  </script>
+
+</body>
+</html>
+

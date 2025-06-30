@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>View Bill Receipts</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111317;
+      margin: 0;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #f9ac54;
+      margin-bottom: 30px;
+    }
+
+    .member-info {
+      background: white;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      line-height: 1.6;
+    }
+
+    .member-info strong {
+      color: #555;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: #f9ac54;
+      color: white;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: #f0f8ff;
+    }
+
+    .btn {
+      padding: 8px 14px;
+      background-color: #f9ac54;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #d79447;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📄 Member Bill Receipts</h1>
+
+  <div class="member-info">
+    <p><strong>Name:</strong> Rahul Mehra</p>
+    <p><strong>Email:</strong> rahul.mehra@example.com</p>
+    <p><strong>Phone:</strong> +91 9876543210</p>
+    <p><strong>Address:</strong> 123, Sector 9, Mumbai, India</p>
+    <p><strong>Additional Notes:</strong> Prefers early morning workout sessions. Paid via UPI.</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Package</th>
+        <th>Amount</th>
+        <th>Payment Mode</th>
+        <th>Receipt ID</th>
+        <th>Receipt</th>
+      </tr>
+    </thead>
+    <tbody id="receiptTable">
+      <!-- JS will populate rows -->
+    </tbody>
+  </table>
+
+  <script>
+    const receipts = [
+      {
+        date: '1 June',
+        package: 'Monthly Gym',
+        amount: '₹500',
+        mode: 'UPI',
+        id: 'RCP5001'
+      },
+      {
+        date: '1 May',
+        package: 'Zumba + Gym',
+        amount: '₹800',
+        mode: 'Credit Card',
+        id: 'RCP4998'
+      },
+      {
+        date: '1 April',
+        package: 'Yoga Plan',
+        amount: '₹600',
+        mode: 'Cash',
+        id: 'RCP4854'
+      },
+      {
+        date: '1 March',
+        package: 'Personal Trainer',
+        amount: '₹1500',
+        mode: 'UPI',
+        id: 'RCP4701'
+      }
+    ];
+
+    const receiptTable = document.getElementById("receiptTable");
+
+    receipts.forEach(r => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${r.date}</td>
+        <td>${r.package}</td>
+        <td>${r.amount}</td>
+        <td>${r.mode}</td>
+        <td>${r.id}</td>
+        <td><button class="btn" onclick="downloadReceipt('${r.id}')">Download</button></td>
+      `;
+      receiptTable.appendChild(row);
+    });
+
+    function downloadReceipt(id) {
+      alert("🔖 Downloading receipt for ID: " + id);
+      // In real use: window.open(`receipts/${id}.pdf`) or generate dynamically
+    }
+  </script>
+
+</body>
+</html>

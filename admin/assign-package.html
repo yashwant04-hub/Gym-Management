@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assign Fee Package</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111317;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #f9ac54;
+    }
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .package-card {
+      padding: 20px;
+      border-radius: 12px;
+      background: #f9ac54;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .package-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .package-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .package-card p {
+      color: #555;
+      font-size: 1.1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #f9ac54;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background: #333;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .package-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Assign Fee Package</h1>
+
+  <div class="package-grid">
+    <div class="package-card" onclick="assignPackage('Monthly Gym Package', 500, '1st Jul - 31st Jul')">
+      <h3>💸 Monthly Package</h3>
+      <p>₹500/month</p>
+    </div>
+    <div class="package-card" onclick="assignPackage('Quarterly Package', 1300, '1st Jul - 30th Sep')">
+      <h3>🏋️ Quarterly Package</h3>
+      <p>₹1300 for 3 months</p>
+    </div>
+    <div class="package-card" onclick="assignPackage('Yoga + Gym Package', 700, '1st Jul - 31st Jul')">
+      <h3>🧘 Yoga + Gym Package</h3>
+      <p>₹700/month</p>
+    </div>
+    <div class="package-card" onclick="assignPackage('Personal Trainer Package', 1500, '1st Jul - 31st Jul')">
+      <h3>💼 Personal Trainer Package</h3>
+      <p>₹1500/month</p>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Member Name</th>
+        <th>Package Assigned</th>
+        <th>Amount</th>
+        <th>Validity</th>
+      </tr>
+    </thead>
+    <tbody id="packageTableBody">
+      <tr>
+        <td>Rahul</td>
+        <td>Monthly Gym Package</td>
+        <td>₹500</td>
+        <td>1st Jul - 31st Jul</td>
+      </tr>
+      <tr>
+        <td>Priya</td>
+        <td>Gym + Zumba Combo</td>
+        <td>₹800</td>
+        <td>1st Jul - 31st Jul</td>
+      </tr>
+      <tr>
+        <td>Aditya</td>
+        <td>Quarterly Package</td>
+        <td>₹1300</td>
+        <td>1st Jul - 30th Sep</td>
+      </tr>
+      <tr>
+        <td>Anjali</td>
+        <td>Yoga + Gym Package</td>
+        <td>₹700</td>
+        <td>1st Jul - 31st Jul</td>
+      </tr>
+      <tr>
+        <td>Vikram</td>
+        <td>Personal Trainer Package</td>
+        <td>₹1500</td>
+        <td>1st Jul - 31st Jul</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    function assignPackage(pkgName, amount, validity) {
+      const memberName = prompt("Enter Member Name:");
+      if (!memberName) return;
+
+      const table = document.getElementById("packageTableBody");
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>${memberName}</td>
+        <td>${pkgName}</td>
+        <td>₹${amount}</td>
+        <td>${validity}</td>
+      `;
+
+      table.appendChild(row);
+    }
+  </script>
+</body>
+</html>
+
+
+
+

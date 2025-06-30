@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monthly Notifications</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #111317;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #f9ac54;
+    }
+
+    .notification-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .notification-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+
+    .notification-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .notification-title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    .notification-desc {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .send-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #f9ac54;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .send-btn:hover {
+      background-color: #d79447;
+    }
+  </style>
+</head>
+<body>
+  <h1>Monthly Notifications</h1>
+
+  <div class="notification-grid">
+    <div class="notification-card">
+      <div class="notification-title">📅 Bill Due Reminder</div>
+      <div class="notification-desc">Notify members whose bills are due for the month.</div>
+      <button class="send-btn">Send Reminder</button>
+    </div>
+
+    <div class="notification-card">
+      <div class="notification-title">📆 Package Renewal Alert</div>
+      <div class="notification-desc">Remind members to renew their gym or fitness packages.</div>
+      <button class="send-btn">Send Alert</button>
+    </div>
+
+    <div class="notification-card">
+      <div class="notification-title">🌟 Upcoming Events</div>
+      <div class="notification-desc">Share updates about workshops, sessions, or competitions.</div>
+      <button class="send-btn">Notify Members</button>
+    </div>
+
+    <div class="notification-card">
+      <div class="notification-title">🌿 Monthly Health Tips</div>
+      <div class="notification-desc">Share nutrition advice, workout guidance, or wellness tips.</div>
+      <button class="send-btn">Send Tips</button>
+    </div>
+
+    <div class="notification-card">
+      <div class="notification-title">⌚ Class Schedule Update</div>
+      <div class="notification-desc">Inform members of any changes to the gym class schedule.</div>
+      <button class="send-btn">Update Schedule</button>
+    </div>
+
+    <div class="notification-card">
+      <div class="notification-title">🏥 New Trainer Introduction</div>
+      <div class="notification-desc">Introduce new trainers joining this month with brief bios.</div>
+      <button class="send-btn">Introduce Trainer</button>
+    </div>
+
+    <div class="notification-card">
+      <div class="notification-title">🎉 Anniversary Offer</div>
+      <div class="notification-desc">Send offers to members on their gym membership anniversary.</div>
+      <button class="send-btn">Send Offer</button>
+    </div>
+
+    <div class="notification-card">
+      <div class="notification-title">📊 Progress Report Reminder</div>
+      <div class="notification-desc">Remind members to check their monthly fitness progress report.</div>
+      <button class="send-btn">Send Reminder</button>
+    </div>
+
+    <div class="notification-card">
+      <div class="notification-title">✉️ Feedback Request</div>
+      <div class="notification-desc">Ask members for feedback on their training experience.</div>
+      <button class="send-btn">Request Feedback</button>
+    </div>
+
+    <div class="notification-card">
+      <div class="notification-title">🎄 Festive Greetings</div>
+      <div class="notification-desc">Send holiday wishes and gym holiday hours to members.</div>
+      <button class="send-btn">Send Greetings</button>
+    </div>
+  </div>
+
+</body>
+</html>
+

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Member Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111317;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    h1{
+        color: #f9ac54;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #f9ac54;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+    }
+
+    .info label {
+      font-weight: bold;
+      color: #555;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: #f9ac54;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 12px;
+      margin: 5px 5px 0 0;
+      font-size: 0.9rem;
+    }
+
+    .highlight {
+      background-color: #e9f5ff;
+      padding: 10px;
+      border-left: 4px solid #f9ac54;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>👤 View Member Details</h1>
+
+    <div class="section">
+      <h2>Basic Profile</h2>
+      <div class="info"><label>Name:</label><span id="name">Rahul Verma</span></div>
+      <div class="info"><label>Email:</label><span id="email">rahulverma@example.com</span></div>
+      <div class="info"><label>Phone:</label><span id="phone">+91 9876543210</span></div>
+      <div class="info"><label>Member Since:</label><span id="joinDate">01-Jan-2024</span></div>
+    </div>
+
+    <div class="section">
+      <h2>Assigned Tasks</h2>
+      <ul id="tasks">
+        <li>Follow diet plan strictly</li>
+        <li>Cardio sessions on Mon-Wed-Fri</li>
+        <li>Progress check every 2 weeks</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Training Schedule</h2>
+      <div class="tag">🕘 Monday – 6:00 PM</div>
+      <div class="tag">🕘 Wednesday – 6:00 PM</div>
+      <div class="tag">🕘 Friday – 6:00 PM</div>
+    </div>
+
+    <div class="section">
+      <h2>Attendance</h2>
+      <div class="highlight">✅ Attended 22/30 days this month</div>
+    </div>
+
+    <div class="section">
+      <h2>Shift Hours</h2>
+      <div class="info"><label>Preferred Time:</label><span>6:00 PM – 7:00 PM</span></div>
+      <div class="info"><label>Trainer:</label><span>Mr. Abhinav Sharma</span></div>
+    </div>
+  </div>
+
+  <script>
+    // Optionally: fetch details from Firebase or local storage in future
+    console.log("Member profile loaded.");
+  </script>
+
+</body>
+</html>

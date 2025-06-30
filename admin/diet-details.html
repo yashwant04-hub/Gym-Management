@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Diet Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #111317;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #f9ac54;
+      margin-bottom: 30px;
+    }
+
+    .diet-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-left: 6px solid #f9ac54;
+    }
+
+    .card-title {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #f9ac54;
+    }
+
+    .goal {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    .diet-list {
+      margin-left: 20px;
+    }
+
+    .diet-list li {
+      margin: 6px 0;
+      color: #555;
+    }
+
+    .nutrients {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      .card-title {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🍽️ Diet Plan Recommendations</h1>
+
+  <div class="diet-container">
+    <!-- Weight Loss Plan -->
+    <div class="card">
+      <div class="card-title">🥗 Weight Loss Plan</div>
+      <div class="goal">Goal: Reduce fat & increase metabolism</div>
+      <ul class="diet-list">
+        <li>Breakfast: Oats with almond milk + 1 boiled egg</li>
+        <li>Lunch: Grilled chicken + salad + brown rice</li>
+        <li>Snack: Green tea + 1 banana</li>
+        <li>Dinner: Vegetable soup + multigrain bread</li>
+      </ul>
+      <div class="nutrients">Calories: ~1500/day | Protein: 80g | Carbs: 130g | Fats: 50g</div>
+    </div>
+
+    <!-- Muscle Gain Plan -->
+    <div class="card">
+      <div class="card-title">🍗 Muscle Gain Plan</div>
+      <div class="goal">Goal: Build lean muscle mass</div>
+      <ul class="diet-list">
+        <li>Breakfast: Eggs + peanut butter toast + fruit smoothie</li>
+        <li>Lunch: Chicken breast + quinoa + mixed veggies</li>
+        <li>Snack: Protein shake + nuts</li>
+        <li>Dinner: Salmon + sweet potato + broccoli</li>
+      </ul>
+      <div class="nutrients">Calories: ~2800/day | Protein: 150g | Carbs: 250g | Fats: 90g</div>
+    </div>
+
+    <!-- Balanced Maintenance Plan -->
+    <div class="card">
+      <div class="card-title">🥦 Balanced Maintenance Plan</div>
+      <div class="goal">Goal: Maintain overall health and energy</div>
+      <ul class="diet-list">
+        <li>Breakfast: Muesli + low-fat milk + berries</li>
+        <li>Lunch: Paneer/tofu + rice + green salad</li>
+        <li>Snack: Yogurt + apple</li>
+        <li>Dinner: Mixed dal + roti + stir-fry vegetables</li>
+      </ul>
+      <div class="nutrients">Calories: ~2000/day | Protein: 100g | Carbs: 180g | Fats: 70g</div>
+    </div>
+  </div>
+
+</body>
+</html>

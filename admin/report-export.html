@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Report Export</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #111317;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #f9ac54;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    @media (max-width: 992px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: #fff;
+      padding: 30px;
+      min-height: 230px;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card-title {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: #222;
+    }
+
+    .card-desc {
+      font-size: 1.05rem;
+      color: #666;
+      flex-grow: 1;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background-color: #f9ac54;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn:hover {
+      background-color: #d79447;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📁 Report Export</h1>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-title">📄 Member Count Report</div>
+      <div class="card-desc">Total registered members with active/inactive breakdown.</div>
+      <button class="btn">Export as PDF</button>
+    </div>
+
+    <div class="card">
+      <div class="card-title">💳 Billing Report</div>
+      <div class="card-desc">Full billing history with monthly and package-wise filters.</div>
+      <button class="btn">Export CSV</button>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📊 Attendance Report</div>
+      <div class="card-desc">Weekly and monthly attendance trends in visual graphs.</div>
+      <button class="btn">Export Graph</button>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🌎 Regional Member Stats</div>
+      <div class="card-desc">Insights on members based on city, zone or location.</div>
+      <button class="btn">Download Excel</button>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🎓 Trainer Allocation</div>
+      <div class="card-desc">Member-trainer assignments and their availability logs.</div>
+      <button class="btn">Export Trainer Report</button>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📈 Progress Tracker Summary</div>
+      <div class="card-desc">Overall fitness and health progress analytics summary.</div>
+      <button class="btn">Download Summary</button>
+    </div>
+  </div>
+
+</body>
+</html>
+

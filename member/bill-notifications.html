@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bill Notifications</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111317;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #f9ac54;
+    }
+    h2{
+        color: #f9ac54;
+    }
+    .notification-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .notification-header i {
+      font-size: 28px;
+      color: #ff9800;
+      margin-right: 10px;
+    }
+
+    .notification-list {
+      max-width: 800px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .notification-card {
+      background: white;
+      border-left: 6px solid #f9ac54;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .notification-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .notification-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .notification-text {
+      font-size: 14px;
+      margin-top: 5px;
+      color: #555;
+    }
+
+    .timestamp {
+      font-size: 12px;
+      color: #888;
+      margin-top: 8px;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <h1>🔔 Bill Notifications</h1>
+
+  <div class="notification-header">
+    <i class="fas fa-bell"></i>
+    <h2>Recent Alerts & Reminders</h2>
+  </div>
+
+  <div class="notification-list" id="notificationList">
+    <!-- Notification cards will be rendered here -->
+  </div>
+
+  <script>
+    const notifications = [
+      {
+        title: "Upcoming Due",
+        message: "Your ₹500 Monthly Gym package is due on 1st July.",
+        time: "2 days ago"
+      },
+      {
+        title: "Payment Confirmation",
+        message: "Your payment of ₹800 for Zumba + Gym package has been received.",
+        time: "4 days ago"
+      },
+      {
+        title: "Package Expiry",
+        message: "Your Gym + Yoga plan will expire on 30th June.",
+        time: "1 day ago"
+      },
+      {
+        title: "Bill Overdue",
+        message: "Your ₹500 Gym package payment was due 5 days ago. Please clear it soon.",
+        time: "5 days ago"
+      },
+      {
+        title: "Early Bird Discount",
+        message: "Pay next month’s fee before 28th and get ₹100 off.",
+        time: "Today"
+      },
+      {
+        title: "New Package Offer",
+        message: "Try our Personal Trainer package at ₹1200/month – Limited slots.",
+        time: "3 days ago"
+      }
+    ];
+
+    const list = document.getElementById("notificationList");
+
+    notifications.forEach(n => {
+      const card = document.createElement("div");
+      card.className = "notification-card";
+      card.innerHTML = `
+        <div class="notification-title">🔔 ${n.title}</div>
+        <div class="notification-text">${n.message}</div>
+        <div class="timestamp">⏱️ ${n.time}</div>
+      `;
+      list.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
